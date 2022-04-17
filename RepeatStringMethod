@@ -1,0 +1,31 @@
+package Methods;
+
+public class RepeatStringMethod {
+    public static void main(String[] args) {
+
+        String line = "Hello";
+        int repetitions = 3;
+        String repeated = getRepeatString(line, repetitions);
+        // ако искам да повторя един и същ стринг няколко пъти - for
+        // по repetitions и долепям, но конкатениране в цикъл не е оптимално!
+        // for (int i = 0; i <= repetitions; i ++) {
+        //     System.out.print(line);
+        System.out.println(repeated);
+    }
+
+
+    private static String getRepeatString(String s, int repetitions) {
+        String[] strings = new String[repetitions];
+        // повтарям в един масив стрингът s
+        for (int i = 0; i < strings.length; i++) {
+            strings[i] = s;
+        }
+            // String.join - > елементи от 1 масив в 1 стринг
+            String repeated = String.join("", strings);
+            return repeated;
+        }
+
+}
+
+
+
