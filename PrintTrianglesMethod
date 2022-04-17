@@ -1,0 +1,36 @@
+package Methods;
+
+import java.util.Scanner;
+
+public class PrintTrianglesMethod {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int number = new Scanner(System.in).nextInt();
+
+        printTriangle(number);
+
+    }
+
+    private static void printTriangle(int number) {
+        for (int length = 1; length <= number; length ++) {
+            printIncreasingNumber(length);
+        }
+
+        for (int length = number - 1; length > 0; length --) {
+            printIncreasingNumber(length);
+        }
+    }
+
+    // number = 5
+        // 1 2 3 4 5
+    private static void printIncreasingNumber(int length) {
+        for (int i = 1; i <= length; i++) {
+            System.out.print(i);
+            if (i < length) {
+                System.out.print(" ");
+            }
+        }
+        System.out.println();
+    }
+}
