@@ -1,0 +1,68 @@
+package Methods;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Trial {
+    static void debugPrintDivider(int dividerLength) {
+        // method overload - когато искам да имам опцията debugPrintDivider
+        // да е понякога с деклариран символ, а друг път с custom - два метода с едно име и различни параметри
+
+        debugPrintDivider(dividerLength,  '-');
+        // делегация - от един метод викам др метод
+    }
+
+    static void debugPrintDivider(int dividerLength, char symbol) {
+
+        // int dividerLength - това е все едно int dividerLength = 20, което имах в началото,
+        // когато е като параметър обаче мога да си я променям при всяко извикване
+
+        for (int i = 0; i < dividerLength; i++) {
+            System.out.print(symbol);
+        }
+        System.out.println();
+    }
+
+    // методите могат да бъдат с едно име стига да имат различни като брой или вид параметри
+    static int findMin (int [] elements) {
+        // ако ни подадат празен масив, върни най-малката стойност и прекъсни
+        if (elements.length == 0){
+            return Integer.MIN_VALUE;
+        }
+        int min = elements[0];
+        // тъй като работя с точно този конкретен масив от числа мога да не използвам min = Max.Value
+        for (int element : elements) {
+            if (min > element) {
+                min = element;
+            }
+        }
+        return min;
+    }
+
+
+    public static void main(String[] args) {
+
+        // симулирам ситуация, в която имам брой числа, които трябва да сравня,
+        // да изпчатам дължината на масива, в който ги пазя, да намеря най-малкия елемент
+        // добавям и разделител за по-лесно дебъгване
+        System.out.println("Hello");
+        debugPrintDivider(18, '^');
+
+        int[] elements = new int[]{4, 2, 7 - 1, -42, 69};
+        System.out.println(elements.length);
+        // местата, на които ползвам метода - users / callsites / clients
+        debugPrintDivider(67, '*');
+
+        // тъй като работя с точно този конкретен масив от числа мога да не използвам min = Max.Value
+        int min = findMin(elements);
+        System.out.println(min);
+        debugPrintDivider(45,  '-');
+
+        // местата, на които ползвам метода - users / callsites / clients
+        debugPrintDivider(35, '=');
+        debugPrintDivider(2,  '-');
+        System.out.println(Arrays.stream(Arrays.stream(elements).toArray()).max());
+        debugPrintDivider(100);
+    }
+
+}
