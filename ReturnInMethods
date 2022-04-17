@@ -1,0 +1,60 @@
+package Methods;
+
+import java.util.Scanner;
+
+public class TrialReturn {
+
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        // в скобите давам стойността на n, т.е къде да прекъсна метода printNumbersTo100OrN
+        printNumbersTo100OrN(10);
+        int[] numbers = new int[]{3, -4, 5, 6, 78, -100, 1, 34};
+        setAllNegativesToZero(numbers);
+        debugPrintDivider(8, '*');
+
+        printArray(numbers);
+        debugPrintDivider(88, '>');
+        System.out.println();
+        debugPrintDivider(38, '*');
+
+    }
+
+    private static void printArray(int[] numbers) {
+        for (int number : numbers) {
+            System.out.print(number + " ");
+
+        }
+    }
+
+    static void printNumbersTo100OrN(int n) {
+        // принтирам числата от 1 - 100 с for от 1 - 100
+        for (int i = 1; i <= 100; i++) {
+            if (i == n) {
+                return;
+            }
+            System.out.println(i);
+        }
+    }
+
+    static void setAllNegativesToZero(int[] numbersArr) {
+        for (int i = 0; i < numbersArr.length; i++) {
+            if (numbersArr[i] < 0) {
+                numbersArr[i] = 0;
+            }
+            System.out.print(numbersArr[i]);
+        }
+
+    }
+
+    static void debugPrintDivider(int dividerLength, char symbol) {
+
+        // int dividerLength - това е все едно int dividerLength = 20, което имах в началото,
+        // когато е като параметър обаче мога да си я променям при всяко извикване
+
+        for (int i = 0; i < dividerLength; i++) {
+            System.out.print(symbol);
+        }
+        System.out.println();
+    }
+}
