@@ -1,0 +1,25 @@
+package Methods;
+
+import java.util.Scanner;
+
+public class MethodOverload {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int x = getMax(5, 10);
+        System.out.println(x);
+    }
+
+    private static int getMax(int a, int b) {
+
+        if (a > b) {
+            return a;
+        }
+        return b;
+    }
+    private static int getMax(int a, int b, int c) {
+        int d = getMax(a, b);
+        return getMax(d, c);
+
+    }
+}
