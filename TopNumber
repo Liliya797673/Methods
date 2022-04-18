@@ -1,0 +1,74 @@
+package Methods;
+
+import java.util.Scanner;
+
+public class TopNumber {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        //Read an integer n from the console.
+        // Find all top numbers in the range [1 … n]
+        // and print them.
+        // A top number holds the following properties:
+
+        //•	Its sum of digits is divisible by 8, e.g. 8, 16, 88.
+        //•	Holds at least one odd digit, e.g. 232, 707, 87578.
+
+        int n = Integer.parseInt(scanner.nextLine());
+        // обхождам всички числа от 1 до n и правя проверка дали числото е top
+        for (int number = 1; number <= n; number++) {
+
+            // 1. сумата от numbers се дели на 8
+            // 2, да има поне една нечетна цифра
+        if (isSumDividable (number) && holdsOddDigits (number)){
+            // ако двата метода за числото Number са true,
+            // то тогава сумата се дели на 8 и има поне една нечетна цифра
+            // -> number е топ и искам да го отпечатам
+            System.out.println(number);
+        }
+        }
+
+    }
+
+    // методът ще върне true, ако сумата от числата се дели на 8
+    // и false, ако не се
+    public static boolean isSumDividable(int number) {
+        // сума от цифрите
+        int sum = 0;
+        // докато числото, което ми е подадено е < 0, искам да минавам,
+        // да взимам последната цифра, да я добавям към сумата и да я махам / 10
+        // спирам, когато number <= 0
+        while (number > 0) {
+            // взимам последната цифра
+            int lastDigit = number % 10;
+            // добавям последната цифра към сумата
+            sum += lastDigit;
+            // премахвам последната цифра, казвайки моето число е равно на
+            // досегашното число / 10, за да падне последната цфра
+            number = number / 10;
+        }
+        // проверка, ако сумата се дели на 8 -> true
+        //if (sum % 8 ==0) {
+        //    return true;
+       // }
+        return sum % 8 ==0;
+    }
+
+    public static boolean holdsOddDigits (int number){
+            // ще проверяваме дали в number имаме поне 1 нечетна цифра
+        // ще върне true, ако има поне 1 нечетна цифра
+        // ще върне false, ако няма нито една нечетна цифра
+
+        while (number>0){
+            // използвам същия алгоритъм за обхождане на числото,
+            // но вместо да сумирам, правя проверка дали е четно или нечетно
+            int lastDigit =  number % 10;
+            if (lastDigit % 2== 1){
+                return true;
+            }
+            number = number /10;
+        }
+        // ако не сме влезли в проверката и не е върнало true, значи е false:
+        return false;
+    }
+}
