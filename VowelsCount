@@ -1,0 +1,32 @@
+package Methods;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+public class VowelsCount {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        //the count of the vowels.
+        // Cats -> 1
+        String text = scanner.nextLine().toLowerCase(Locale.ROOT);
+
+        // a e o i u y
+        System.out.println(printVowelsCount (text));
+    }
+
+    public static int printVowelsCount (String text){
+
+        int countVowels = 0;
+
+        for (char symbol = 0; symbol <= text.length()-1; symbol ++) {
+            // така знам кой ми е текущият символ и го взимам и
+            // правя проверка за него дали е гласна буква
+            char currentSYmbol = text.charAt(symbol);
+            if (currentSYmbol == 'a' || currentSYmbol == 'e' ||
+                    currentSYmbol == 'o'|| currentSYmbol == 'i'|| currentSYmbol == 'u'|| currentSYmbol == 'y'){
+                countVowels++;
+            }
+        }
+        return countVowels;
+    }
+}
