@@ -1,0 +1,40 @@
+package Methods;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+public class MiddleCharacters {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // aString -> r -> print the middle character
+
+        String text = scanner.nextLine();
+
+        printTheLowerCase(text);
+    }
+
+    private static void printTheLowerCase(String text) {
+        // дължината на въведеният текст да е четна или нечетна
+        // ако е четна имам да отпечатвам два символа, ако е нечетна - 1
+
+        if (text.length() % 2 == 1) {
+            // дължината е нечетна и имам да отпечатам само 1 символ
+            // символът е на индекс дължината / 2 -> aString 7 дължина - > r на 3 индекс
+            int indexOfMiddleCase = text.length() / 2;
+            System.out.print(text.charAt(indexOfMiddleCase));
+        } else {
+            // как да намерим индексите при четна дължина на двата средни символа
+            // indexFirstMiddleCase и indexSecondMiddleCase
+            // "abcdef" -> c и d трябва да отпечатам
+            // c d на позиция дължината / 2, а e е на позиция дължината/2-1
+            int indexFirstMiddleCase = text.length() / 2 - 1;
+            int indexSecondMiddleCase = text.length() / 2;
+            System.out.println(text.charAt(indexFirstMiddleCase) + "" + text.charAt(indexSecondMiddleCase));
+        }
+
+
+    }
+
+
+}
