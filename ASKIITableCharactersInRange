@@ -1,0 +1,43 @@
+package Methods;
+
+import java.util.Scanner;
+
+public class ASKITableCharactersInRange {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        // метод, който отпечатва ред с всички символи
+        // от по-малкия към по-големия от дадени 2 символа!!!
+        // #
+        //: -> $ % & ' ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9
+        char symbolOne = scanner.nextLine().charAt(0);
+        char symbolTwo = scanner.nextLine().charAt(0);
+
+        printSequenceOfChars(symbolOne, symbolTwo);
+    }
+
+    private static void printSequenceOfChars(char symbolOne, char symbolTwo) {
+
+        // проверка от кой символ да започнем
+
+        if (symbolOne < symbolTwo) {
+            // започваме от 1 -> 2 (обхождам го с цикъл)
+            // ВАЖНО! Тук заопчвам от следващия на symbolOne 'a' 'd' -> b c
+            for (char symbol = (char)(symbolOne+1); symbol < symbolTwo; symbol++) {
+
+                // Повтарям -> отпечатване
+
+                System.out.print(symbol + " ");
+
+            }
+
+        } else {
+            // заспочваме от 2 ->1
+            for (char symbol = (char)(symbolTwo+1); symbol < symbolOne; symbol++) {
+                System.out.print(symbol + " ");
+
+            }
+        }
+
+
+    }
+}
